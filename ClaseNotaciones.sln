@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33723.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClaseNotaciones", "ClaseNotaciones.csproj", "{79B617AF-B77C-4131-8FAF-A72B9DEB276C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{79B617AF-B77C-4131-8FAF-A72B9DEB276C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79B617AF-B77C-4131-8FAF-A72B9DEB276C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79B617AF-B77C-4131-8FAF-A72B9DEB276C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79B617AF-B77C-4131-8FAF-A72B9DEB276C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D427C208-48A1-4C50-8D13-B2657FE5E196}
+	EndGlobalSection
+EndGlobal
