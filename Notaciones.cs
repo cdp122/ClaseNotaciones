@@ -19,42 +19,46 @@ namespace ClaseNotaciones
 
         public NPosfija APosfija()
         {
-            Stack<char> pila = new Stack<char>();
+            Stack<string> pila = new Stack<string>();
             string nuevaNotacion = string.Empty;
-            foreach (char c in notacion)
+            int ini, fin;
+            ini = 0;
+            for(int i = 0; i < notacion.Length; i++)
             {
-                if (!Signos.signos.Contains(c)) nuevaNotacion += c;
+                if (!Signos.signos.Contains(notacion[i])) { }
                 else
                 {
-                    if (c == '^')
+                    fin = i - 1;
+                    if (notacion[i] == '^')
                     {
-                        while (pila.Count != 0 && pila.First() == '^')
+                        while (pila.Count != 0 && pila.First() == "^")
                             nuevaNotacion += pila.Pop();
-                        pila.Push(c);
+                        pila.Push(notacion.Substring(ini, fin) + "^");
                     }
-                    else if (c == '*' || c == '/')
+                    else if (notacion[i] == '*' || notacion[i] == '/')
                     {
 
-                        while (pila.Count != 0 && pila.First() != '+' && pila.First() != '-'
-                            && pila.First() != '(')
+                        while (pila.Count != 0 && pila.First() != "+" && pila.First() != "-"
+                            && pila.First() != "(")
                             nuevaNotacion += pila.Pop();
-                        pila.Push(c);
+                        pila.Push(notacion.Substring(ini, fin) + notacion[i]);
                     }
-                    else if (c == '+' || c == '-')
+                    else if (notacion[i] == '+' || notacion[i] == '-')
                     {
-                        while (pila.Count != 0 && pila.First() != '(')
+                        while (pila.Count != 0 && pila.First() != "(")
                             nuevaNotacion += pila.Pop();
-                        pila.Push(c);
+                        pila.Push(notacion.Substring(ini, fin) + notacion[i]);
                     }
-                    else if (c == '(') pila.Push(c);
-                    else if (c == ')')
+                    else if (notacion[i] == '(') pila.Push(notacion[i] + "");
+                    else if (notacion[i] == ')')
                     {
-                        while (pila.Count > 0 && pila.First() != '(')
+                        while (pila.Count > 0 && pila.First() != "(")
                         {
                             nuevaNotacion += pila.Pop();
                         }
                         pila.Pop();
                     }
+                    ini = fin + 1;
                 }
             }
             while (pila.Count != 0) nuevaNotacion += pila.Pop();
@@ -80,13 +84,13 @@ namespace ClaseNotaciones
         {
             Stack<string> pila = new Stack<string>();
             string nuevaNotacion = string.Empty;
-            string c = string.Empty;
+            string notacion = string.Empty;
             for (int i = 0; i < notacion.Length; i++)
             {
                 if (Signos.signos.Contains(notacion[i]))
                 {
-                    c = pila.Pop();
-                    pila.Push(pila.Pop() + notacion[i] + c);
+                    notacion = pila.Pop();
+                    pila.Push(pila.Pop() + notacion[i] + notacion[i]);
                 }
                 else
                 {
