@@ -66,7 +66,7 @@ namespace ClaseNotaciones
         }
 
         public override string ToString()
-        {
+        {asd
             return notacion;
         }
     }
