@@ -10,10 +10,7 @@ namespace ClaseNotaciones
 
     internal class NInfija
     {
-        Stack<char> signos = new Stack<char>();
-        Stack<string> operandos = new Stack<string>();
-
-        string notacion; 
+        string notacion;
 
         public NInfija(string notacion)
         {
@@ -22,17 +19,13 @@ namespace ClaseNotaciones
 
         public NPosfija APosfija()
         {
+            Stack<char> signos = new Stack<char>();
             string nuevaNotacion = string.Empty;
-            int ini, fin;
-            ini = 0;
             for(int i = 0; i < notacion.Length; i++)
             {
                 if (!Signos.signos.Contains(notacion[i])) { nuevaNotacion += notacion[i]; }
                 else
                 {
-                    fin = i - 1;
-                    operandos.Push(notacion.Substring(ini, fin - ini + 1));
-                    ini = fin + 1;
                     if (notacion[i] == '^')
                     {
                         while (signos.Count != 0 && signos.First() == '^')
@@ -66,22 +59,6 @@ namespace ClaseNotaciones
             }
             while (signos.Count != 0) nuevaNotacion += signos.Pop();
             return new NPosfija(nuevaNotacion);
-        }
-
-        //Este método aún no es funcional. 
-        public float Resolver()
-        {
-            if (signos.Count != 0 || operandos.Count != 0) APosfija();
-            else
-            {
-                float a, b;
-                while (signos.Count != 0 && operandos.Count > 1) { 
-                    b = signos.Pop(); a = signos.Pop();
-
-                }
-            }
-
-            return 2;
         }
 
         public override string ToString()
@@ -132,5 +109,5 @@ namespace ClaseNotaciones
     internal class NPrefija
     {
 
-    }asdasdas
+    }
 }
