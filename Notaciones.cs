@@ -17,7 +17,7 @@ namespace ClaseNotaciones
 
         public NInfija(string notacion)
         {
-            this.notacion = notacion;csdd
+            this.notacion = notacion;
         }
 
         public NPosfija APosfija()
