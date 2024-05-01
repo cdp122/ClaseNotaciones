@@ -26,38 +26,35 @@ namespace ClaseNotaciones
 
         }
 
-        private void btnTransformar_Click(object sender, EventArgs e)
-        {
-            GC.Collect();
-            try
-            {
-                if (txtInfija.Text != "")
-                {
-                    txtPosfija.Text = "";
-                    txtPrefija.Text = "";
-                    infija = new NInfija(txtInfija.Text);
-                    txtPosfija.Text = infija.APosfija() + "";
-                }
-                else if (txtPosfija.Text != "")
-                {
-                    txtInfija.Text = "";
-                    txtPrefija.Text = "";
-                    posfija = new NPosfija(txtPosfija.Text);
-                    txtInfija.Text = posfija.AInfija() + "";
-                }
-                else if (txtPrefija.Text != "")
-                {
-                    txtPosfija.Text = "";
-                    txtInfija.Text = "";
-                }
-            }catch (Exception ex) { MessageBox.Show("Error, notación ingresada incorrecta\n"+ex.ToString()); }
-        }
-
         private void KeyEnter(object sender, KeyPressEventArgs e)
         {
             if(e.KeyChar == (char)Keys.Enter)
             {
-                btnTransformar_Click(sender, e);
+                GC.Collect();
+                try
+                {
+                    if (txtInfija.Text != "")
+                    {
+                        txtPosfija.Text = "";
+                        txtPrefija.Text = "";
+                        infija = new NInfija(txtInfija.Text);
+                        txtPosfija.Text = infija.APosfija() + "";
+                    }
+                    else if (txtPosfija.Text != "")
+                    {
+                        txtInfija.Text = "";
+                        txtPrefija.Text = "";
+                        posfija = new NPosfija(txtPosfija.Text);
+                        txtInfija.Text = posfija.AInfija() + "";
+                    }
+                    else if (txtPrefija.Text != "")
+                    {
+                        txtPosfija.Text = "";
+                        txtInfija.Text = "";
+                    }
+                    //Aqui iria el codigo para resolver. 
+                }
+                catch (Exception ex) { MessageBox.Show("Error, notación ingresada incorrecta\n" + ex.ToString()); }
             }
         }
 
