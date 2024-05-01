@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace ClaseNotaciones
 {
-    abstract class Signos // HOLAAA asdasd
+    abstract class Signos
     {
         public static char[] signos = new char[] { '+', '-', '*', '/', '^', '(', ')' };
     }
