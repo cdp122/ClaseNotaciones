@@ -21,7 +21,7 @@ namespace ClaseNotaciones
         {
             Stack<char> signos = new Stack<char>();
             string nuevaNotacion = string.Empty;
-            for (int i = 0; i < notacion.Length; i++)
+            for(int i = 0; i < notacion.Length; i++)
             {
                 if (!Signos.signos.Contains(notacion[i])) { nuevaNotacion += notacion[i]; }
                 else
@@ -81,7 +81,7 @@ namespace ClaseNotaciones
             Stack<string> pila = new Stack<string>();
             string nuevaNotacion = string.Empty;
             string notacion = string.Empty;
-            foreach (char c in this.notacion)
+            foreach(char c in this.notacion)
             {
                 if (Signos.signos.Contains(c))
                 {
