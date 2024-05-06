@@ -12,9 +12,9 @@ namespace ClaseNotaciones
 {
     public partial class Form1 : Form
     {
+        //Instanciamos las clases NotacionInfija y NotacionPosfija
         NInfija infija;
         NPosfija posfija;
-        NPrefija prefija;
 
         public Form1()
         {
@@ -26,13 +26,21 @@ namespace ClaseNotaciones
 
         }
 
+        /// <summary>
+        /// Evento que se ejecuta al presionar la tecla "Enter" en cualquier textbox que lo tenga asignado.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void KeyEnter(object sender, KeyPressEventArgs e)
         {
+            //Se activará unicamente al ser "Enter"
             if(e.KeyChar == (char)Keys.Enter)
             {
+                //Limpiamos la memoria de objetos ya no usados. Con el fin de optimizar el programa
                 GC.Collect();
                 try
                 {
+                    //Dependerá donde ha sido invocado se convertirán en las notaciones adecuadas. 
                     if (txtInfija.Text != "")
                     {
                         txtPosfija.Text = "";
@@ -52,12 +60,17 @@ namespace ClaseNotaciones
                         txtPosfija.Text = "";
                         txtInfija.Text = "";
                     }
-                    //Aqui iria el codigo para resolver. 
                 }
+                //En caso de dar algun error, es previsto que fue por la notación mal ingresada. 
                 catch (Exception ex) { MessageBox.Show("Error, notación ingresada incorrecta\n" + ex.ToString()); }
             }
         }
 
+        /// <summary>
+        /// Permite que al dar "foco" a un textbox especifico, los demás se borrarán el texto almacenado. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Focus_Enter(object sender, EventArgs e)
         {
             TextBox t = (TextBox)sender;
