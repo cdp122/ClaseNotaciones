@@ -44,14 +44,14 @@ namespace ClaseNotaciones
                     if (txtInfija.Text != "")
                     {
                         txtPosfija.Text = "";
-                        txtPrefija.Text = "";
+                        
                         infija = new NInfija(txtInfija.Text);
                         txtPosfija.Text = infija.APosfija() + "";
                     }
                     else if (txtPosfija.Text != "")
                     {
                         txtInfija.Text = "";
-                        txtPrefija.Text = "";
+                        
                         posfija = new NPosfija(txtPosfija.Text);
                         txtInfija.Text = posfija.AInfija() + "";
                     }
@@ -77,18 +77,24 @@ namespace ClaseNotaciones
             if(t.Name == "txtInfija")
             {
                 txtPosfija.Text = "";
-                txtPrefija.Text = "";
+                
             }
             else if(t.Name == "txtPosfija")
             {
                 txtInfija.Text = "";
-                txtPrefija.Text = "";
+
             }
             else if(t.Name == "txtPrefija")
             {
                 txtPosfija.Text = "";
                 txtInfija.Text = "";
             }
+        }
+
+        private void btnTransformar_Click(object sender, EventArgs e)
+        {
+            string r = txtPosfija.Text.ToString();
+            
         }
     }
 }
