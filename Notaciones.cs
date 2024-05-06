@@ -10,13 +10,16 @@ namespace ClaseNotaciones
     {
         public static char[] signos = new char[] { '+', '-', '*', '/', '^', '(', ')' };
     }
-
+    
     /// <summary>
     /// La clase Notación Infija se encarga de almacenar la notación del mismo nombre.
     /// Además permite sus conversiones a otras Notaciones. 
     /// </summary>
     internal class NInfija
-    {   
+    {
+        Pila p1; //declaro mi pila
+
+
         //La notación principal donde se manejaran para los metodos existentes. 
         string notacion;
 
@@ -37,6 +40,7 @@ namespace ClaseNotaciones
         {
             //Usamos la clase pila para almacenar correctamente los datos
             Stack<char> signos = new Stack<char>();
+            
             //La cadena "nuevaNotacion" inicia como vacia.
             string nuevaNotacion = string.Empty;
 
@@ -123,7 +127,7 @@ namespace ClaseNotaciones
         /// <summary>
         /// Regresa su versión de Notación a Notación Infija
         /// </summary>
-        /// <returns>Regresa la clase Notación Infija</returns>
+        /// <returns>Regresa la clase Notación Infija</returns> 
         public NInfija AInfija()
         {
             //Instanciamos la clase pila. Una cadena "nuevaNotacion" y una nueva cadena "notación".

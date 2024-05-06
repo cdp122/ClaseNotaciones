@@ -81,7 +81,7 @@ namespace ClaseNotaciones
 
         private void btnTransformar_Click(object sender, EventArgs e)
         {
-            string r = txtPosfija.Text.ToString();
+            
             
         }
     }
