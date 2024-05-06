@@ -17,7 +17,7 @@ namespace ClaseNotaciones
     /// </summary>
     internal class NInfija
     {
-        Pila p1; //declaro mi pila
+        
 
 
         //La notación principal donde se manejaran para los metodos existentes. 
@@ -36,10 +36,11 @@ namespace ClaseNotaciones
         /// Regresa su versión de la notación a Notación Posfija. 
         /// </summary>
         /// <returns>Regresa una Notación Posfija</returns>
-        public NPosfija APosfija()
+        public NPosfija APosfija()   //YA ESTA FUNCIONAL EL METODO APosfija()
         {
             //Usamos la clase pila para almacenar correctamente los datos
-            Stack<char> signos = new Stack<char>();
+            
+            Pila signos = new Pila(notacion.Length);
 
             //La cadena "nuevaNotacion" inicia como vacia.
             string nuevaNotacion = string.Empty;
@@ -56,42 +57,42 @@ namespace ClaseNotaciones
                     {
                         //Mientras que la pila signos no esté vacia y la cima del signo sea "^"
                         //se desapilarán y agregarán a la nueva Notación.
-                        while (signos.Count != 0 && signos.First() == '^')
-                            nuevaNotacion += signos.Pop();
+                        while ((char)signos.getNumEle() != 0 && (char)signos.Cima() == '^')
+                            nuevaNotacion += signos.Desapilar();
                         //El signo de potencia se apila dentro de la pila signos. 
-                        signos.Push(notacion[i]);
+                        signos.Apilar(notacion[i]);
                     }
                     else if (notacion[i] == '*' || notacion[i] == '/')
                     {
                         //La misma condición anterior, pero con los signos "+" y "-"
-                        while (signos.Count != 0 && signos.First() != '+' && signos.First() != '-'
-                            && signos.First() != '(')
-                            nuevaNotacion += signos.Pop();
-                        signos.Push(notacion[i]);
+                        while ((char)signos.getNumEle() != 0 && (char)signos.Cima() != '+' && (char)signos.Cima() != '-'
+                            && (char)signos.Cima() != '(')
+                            nuevaNotacion += (char)signos.Desapilar();
+                        signos.Apilar(notacion[i]);
                     }
                     else if (notacion[i] == '+' || notacion[i] == '-')
                     {
-                        while (signos.Count != 0 && signos.First() != '(')
-                            nuevaNotacion += signos.Pop();
-                        signos.Push(notacion[i]);
+                        while (signos.getNumEle() != 0 && (char)signos.Cima() != '(')
+                            nuevaNotacion += (char)signos.Desapilar();
+                        signos.Apilar(notacion[i]);
                     }
                     //Si es "(" se apila dentro de la pila signos
-                    else if (notacion[i] == '(') signos.Push(notacion[i]);
+                    else if (notacion[i] == '(') signos.Apilar(notacion[i]);
                     else if (notacion[i] == ')')
                     {
                         //Al ser ")" desapilará todos los signos hasta encontrar el simbolo "("
-                        while (signos.Count > 0 && signos.First() != '(')
+                        while (signos.getNumEle() > 0 && (char)signos.Cima() != '(')
                         {
-                            nuevaNotacion += signos.Pop();
+                            nuevaNotacion += (char)signos.Desapilar();
                         }
                         //desapila el simbolo restante, que será "("
-                        signos.Pop();
+                        signos.Desapilar();
                     }
                 }
             }
             //Por útlimo, mientras que la pila signos no esté vacía. Se desapilarán los signos
             //hasta quedarse vacía y se guardarán en la cadena nuevaNotacion. 
-            while (signos.Count != 0) nuevaNotacion += signos.Pop();
+            while (signos.getNumEle() != 0) nuevaNotacion += signos.Desapilar();
 
             //Regresa la nueva notación. 
             return new NPosfija(nuevaNotacion);
@@ -132,29 +133,31 @@ namespace ClaseNotaciones
         {
             //Instanciamos la clase pila. Una cadena "nuevaNotacion" y una nueva cadena "notación".
             //Ambas cadenas empezarán vacias. 
-            Stack<string> pila = new Stack<string>();
+
+            
             string nuevaNotacion = string.Empty;
             string notacion = string.Empty;
+            Pila pila = new Pila(notacion.Length);
 
             //Por cada "char" que haya en la notación de la clase se realizará:
-            foreach(char c in this.notacion)
+            foreach (char c in this.notacion)
             {
                 //Si es signo se desapila el ultimo valor apilado en pila y es almacenado en notacion,
                 //Luego se apila nuevamente el nuevo utimo valor y agregamos el signo
                 //con el valor almacenado en notacion.
                 if (Signos.signos.Contains(c))
                 {
-                    notacion = pila.Pop();
-                    pila.Push(pila.Pop() + c + notacion);
+                    notacion = (string)pila.Desapilar();
+                    pila.Apilar((char)pila.Desapilar() + c + notacion);
                 }
                 //de no ser signo, solo se almacena el "char" actual del foreach. 
                 else
                 {
-                    pila.Push(c + "");
+                    pila.Apilar(c + "");
                 }
             }
             //Al ultimo, vaciamos la pila almacenando los valores guardados en pila a la nuevaNotacion.
-            while (pila.Count > 0) nuevaNotacion += pila.Pop(); 
+            while (pila.getNumEle() > 0) nuevaNotacion += pila.Desapilar(); 
 
             //Regresamos el objeto de tipo Notacion Infija.
             return new NInfija(nuevaNotacion);
