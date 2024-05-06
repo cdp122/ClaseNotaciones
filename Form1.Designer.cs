@@ -36,6 +36,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtRespuesta = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.btnTransformar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -124,11 +125,22 @@
             this.label6.TabIndex = 10;
             this.label6.Text = "Resultado";
             // 
+            // btnTransformar
+            // 
+            this.btnTransformar.Location = new System.Drawing.Point(577, 149);
+            this.btnTransformar.Name = "btnTransformar";
+            this.btnTransformar.Size = new System.Drawing.Size(97, 37);
+            this.btnTransformar.TabIndex = 11;
+            this.btnTransformar.Text = "Transformar";
+            this.btnTransformar.UseVisualStyleBackColor = true;
+            this.btnTransformar.Click += new System.EventHandler(this.btnTransformar_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(818, 299);
+            this.Controls.Add(this.btnTransformar);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtRespuesta);
             this.Controls.Add(this.label5);
@@ -156,6 +168,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtRespuesta;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnTransformar;
     }
 }
 

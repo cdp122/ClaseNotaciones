@@ -73,5 +73,11 @@ namespace ClaseNotaciones
                 txtInfija.Text = "";
             }
         }
+
+        private void btnTransformar_Click(object sender, EventArgs e)
+        {
+            string r = txtPosfija.Text.ToString();
+            
+        }
     }
 }
