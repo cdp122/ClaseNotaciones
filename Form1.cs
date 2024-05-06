@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ClaseNotaciones
@@ -54,11 +47,6 @@ namespace ClaseNotaciones
                         
                         posfija = new NPosfija(txtPosfija.Text);
                         txtInfija.Text = posfija.AInfija() + "";
-                    }
-                    else if (txtPrefija.Text != "")
-                    {
-                        txtPosfija.Text = "";
-                        txtInfija.Text = "";
                     }
                 }
                 //En caso de dar algun error, es previsto que fue por la notación mal ingresada. 
