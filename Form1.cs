@@ -84,5 +84,10 @@ namespace ClaseNotaciones
             
             
         }
+
+        private void txtInfija_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

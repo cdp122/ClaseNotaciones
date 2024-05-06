@@ -66,6 +66,7 @@
             this.txtInfija.Name = "txtInfija";
             this.txtInfija.Size = new System.Drawing.Size(226, 31);
             this.txtInfija.TabIndex = 2;
+            this.txtInfija.TextChanged += new System.EventHandler(this.txtInfija_TextChanged);
             this.txtInfija.Enter += new System.EventHandler(this.Focus_Enter);
             this.txtInfija.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyEnter);
             // 
@@ -120,7 +121,7 @@
             // btnTransformar
             // 
             this.btnTransformar.Location = new System.Drawing.Point(433, 121);
-            this.btnTransformar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnTransformar.Margin = new System.Windows.Forms.Padding(2);
             this.btnTransformar.Name = "btnTransformar";
             this.btnTransformar.Size = new System.Drawing.Size(73, 30);
             this.btnTransformar.TabIndex = 11;
