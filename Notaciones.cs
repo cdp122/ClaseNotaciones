@@ -40,7 +40,7 @@ namespace ClaseNotaciones
         {
             //Usamos la clase pila para almacenar correctamente los datos
             Stack<char> signos = new Stack<char>();
-            
+
             //La cadena "nuevaNotacion" inicia como vacia.
             string nuevaNotacion = string.Empty;
 
