@@ -16,7 +16,10 @@ namespace ClaseNotaciones
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            txtPosfija.ReadOnly=true;
+            txtPosfija.BackColor = System.Drawing.Color.White;
+            txtRespuesta.ReadOnly=true;
+            txtRespuesta.BackColor = System.Drawing.Color.White;
         }
 
         /// <summary>
@@ -120,5 +123,30 @@ namespace ClaseNotaciones
             return contador == 0;
         }
 
+        private void btnValidar_Click(object sender, EventArgs e)
+        {
+            //Limpiamos la memoria de objetos ya no usados. Con el fin de optimizar el programa
+            GC.Collect();
+            try
+            {
+                //Dependerá donde ha sido invocado se convertirán en las notaciones adecuadas. 
+                if (txtInfija.Text != "")
+                {
+
+                    if (verificarParentesis(txtInfija.Text))
+                    {
+                        MessageBox.Show("🍻🍾Notación correcta🎉🥳", "CORRECTO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error de parentesis😒", "INCORRECTO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    } 
+
+                }
+
+            }
+            //En caso de dar algun error, es previsto que fue por la notación mal ingresada. 
+            catch (Exception ex) { MessageBox.Show("Error, notación ingresada incorrecta\n" + ex.ToString()); }
+        }
     }
 }

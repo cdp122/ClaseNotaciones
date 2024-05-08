@@ -69,7 +69,6 @@
             this.txtInfija.Name = "txtInfija";
             this.txtInfija.Size = new System.Drawing.Size(300, 37);
             this.txtInfija.TabIndex = 2;
-            
             this.txtInfija.Enter += new System.EventHandler(this.Focus_Enter);
             this.txtInfija.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyEnter);
             // 
@@ -151,6 +150,7 @@
             this.btnValidar.TabIndex = 13;
             this.btnValidar.Text = "Validar";
             this.btnValidar.UseVisualStyleBackColor = true;
+            this.btnValidar.Click += new System.EventHandler(this.btnValidar_Click);
             // 
             // btnEvaluar
             // 
@@ -180,6 +180,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(721, 330);
+            this.MinimumSize = new System.Drawing.Size(721, 330);
             this.Name = "Form1";
             this.Text = "Notaciones";
             this.Load += new System.EventHandler(this.Form1_Load);
