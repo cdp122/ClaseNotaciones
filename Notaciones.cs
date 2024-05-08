@@ -125,7 +125,7 @@ namespace ClaseNotaciones
         }
 
         /// <summary>
-        /// Regresa su versión de Notación a Notación Infija
+        /// Regresa su versión de Notación Pos a Notación Infija
         /// </summary>
         /// <returns>Regresa la clase Notación Infija</returns> 
         public NInfija AInfija()
@@ -144,7 +144,7 @@ namespace ClaseNotaciones
                 //Si es signo se desapila el ultimo valor apilado en pila y es almacenado en notacion,
                 //Luego se apila nuevamente el nuevo utimo valor y agregamos el signo
                 //con el valor almacenado en notacion.
-                if (Signos.signos.Contains(c))
+                if (!Signos.signos.Contains(c))
                 {
                     notacion = (string)pila.Desapilar();
                     pila.Apilar((char)pila.Desapilar() + c + notacion);
@@ -152,7 +152,12 @@ namespace ClaseNotaciones
                 //de no ser signo, solo se almacena el "char" actual del foreach. 
                 else
                 {
-                    pila.Apilar(c + "");
+                    string operando2 = (string)pila.Desapilar();
+                    string operando1 = (string)pila.Desapilar();
+
+                    // Aplicamos el operador a los dos elementos desapilados y volvemos a apilar el resultado.
+                    string resultado = "(" + operando1 + c + operando2 + ")";
+                    pila.Apilar(resultado);
                 }
             }
             //Al ultimo, vaciamos la pila almacenando los valores guardados en pila a la nuevaNotacion.

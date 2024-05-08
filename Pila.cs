@@ -20,18 +20,18 @@ namespace ClaseNotaciones
 
         }
 
-        public void Apilar(Object elemento)
+        public void Apilar(object elemento)
         {
             Arreglo[numEle++] = elemento;
             //numEle++;
         }
 
-        public Object Desapilar()
+        public object Desapilar()
         {
-            if (numEle != 0 && numEle > 0)
-                return Arreglo[--numEle];
-            else return null;
+            numEle--;
+            return Arreglo[numEle];
         }
+
 
         public bool Vacia()
         {
@@ -43,20 +43,7 @@ namespace ClaseNotaciones
             return numEle == tam;
         }
 
-       /* public String Reporte()
-        {
-            string r = "";
-            //Notas not;
-            for (int i = 0; i < this.numEle; i++)
-            {
-                //not = (Notas)Arreglo[i];
-                //r = not.getCedula() + " " + not.getCodMateria() + " " + not.getNota1() + " " + not.getNota2() + "\n" + r;
-            }
-            return r;
-        }*/
-
-
-        public Object Cima()
+        public object Cima()
         {
             return Arreglo[numEle - 1];
         }
@@ -80,12 +67,12 @@ namespace ClaseNotaciones
         {
             this.numEle = numEle;
         }
-        public Object[] getArreglo()
+        public object[] getArreglo()
         {
             return Arreglo;
         }
 
-        public void setArreglo(Object[] Arreglo)
+        public void setArreglo(object[] Arreglo)
         {
             this.Arreglo = Arreglo;
         }

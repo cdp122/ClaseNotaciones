@@ -91,16 +91,7 @@
             this.label3.Size = new System.Drawing.Size(223, 31);
             this.label3.TabIndex = 3;
             this.label3.Text = "Expresión Posfija";
-            // 
-            // txtPrefija
-            // 
-            this.txtPrefija.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrefija.Location = new System.Drawing.Point(196, 158);
-            this.txtPrefija.Name = "txtPrefija";
-            this.txtPrefija.Size = new System.Drawing.Size(226, 31);
-            this.txtPrefija.TabIndex = 6;
-            this.txtPrefija.Enter += new System.EventHandler(this.Focus_Enter);
-            this.txtPrefija.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyEnter);
+            //
             // 
             // label4
             // 
@@ -149,7 +140,7 @@
             this.btnTransformar.TabIndex = 11;
             this.btnTransformar.Text = "Transformar";
             this.btnTransformar.UseVisualStyleBackColor = true;
-            this.btnTransformar.Click += new System.EventHandler(this.btnTransformar_Click);
+            
             // 
             // label4
             // 
@@ -170,7 +161,7 @@
             this.btnValidar.TabIndex = 13;
             this.btnValidar.Text = "Validar";
             this.btnValidar.UseVisualStyleBackColor = true;
-            this.btnValidar.Click += new System.EventHandler(this.btnValidar_Click);
+            
             // 
             // btnEvaluar
             // 
