@@ -69,6 +69,7 @@
             this.txtInfija.Name = "txtInfija";
             this.txtInfija.Size = new System.Drawing.Size(300, 37);
             this.txtInfija.TabIndex = 2;
+            
             this.txtInfija.Enter += new System.EventHandler(this.Focus_Enter);
             this.txtInfija.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyEnter);
             // 
@@ -79,6 +80,7 @@
             this.txtPosfija.Name = "txtPosfija";
             this.txtPosfija.Size = new System.Drawing.Size(300, 37);
             this.txtPosfija.TabIndex = 4;
+            this.txtPosfija.TextChanged += new System.EventHandler(this.txtPosfija_TextChanged);
             this.txtPosfija.Enter += new System.EventHandler(this.Focus_Enter);
             this.txtPosfija.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyEnter);
             // 

@@ -7,7 +7,7 @@ namespace ClaseNotaciones
     {
         //Instanciamos las clases NotacionInfija y NotacionPosfija
         NInfija infija;
-        NPosfija posfija;
+        
 
         public Form1()
         {
@@ -26,7 +26,7 @@ namespace ClaseNotaciones
         /// <param name="e"></param>
         private void KeyEnter(object sender, KeyPressEventArgs e)
         {
-            if(e.KeyChar == (char)Keys.Enter)
+            if (e.KeyChar == (char)Keys.Enter)
             {
                 //Limpiamos la memoria de objetos ya no usados. Con el fin de optimizar el programa
                 GC.Collect();
@@ -35,18 +35,19 @@ namespace ClaseNotaciones
                     //Dependerá donde ha sido invocado se convertirán en las notaciones adecuadas. 
                     if (txtInfija.Text != "")
                     {
-                        txtPosfija.Text = "";
 
-                        infija = new NInfija(txtInfija.Text);
-                        txtPosfija.Text = infija.APosfija() + "";
+                        if (verificarParentesis(txtInfija.Text))
+                        {
+                            infija = new NInfija(txtInfija.Text);
+                            txtPosfija.Text = infija.APosfija() + "";
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error de parentesis");
+                        }
+                        
                     }
-                    else if (txtPosfija.Text != "")
-                    {
-                        txtInfija.Text = "";
 
-                        posfija = new NPosfija(txtPosfija.Text);
-                        txtInfija.Text = posfija.AInfija() + "";
-                    }
                 }
                 //En caso de dar algun error, es previsto que fue por la notación mal ingresada. 
                 catch (Exception ex) { MessageBox.Show("Error, notación ingresada incorrecta\n" + ex.ToString()); }
@@ -71,17 +72,53 @@ namespace ClaseNotaciones
                 txtInfija.Text = "";
 
             }
-            else if(t.Name == "txtPosfija")
+            else if (t.Name == "txtPosfija")
             {
                 txtPosfija.Text = "";
                 txtInfija.Text = "";
-                
+
             }
-            else if(t.Name == "txtPrefija")
+            else if (t.Name == "txtPrefija")
             {
                 txtPosfija.Text = "";
                 txtInfija.Text = "";
             }
         }
+
+        private void txtPosfija_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        
+
+        public static bool verificarParentesis(string cadena)
+        {
+            int contador = 0;
+
+            for (int i = 0; i < cadena.Length; i++)
+            {
+                char caracter = cadena[i];
+
+                if (caracter == '(')
+                {
+                    contador++;
+                }
+                else if (caracter == ')')
+                {
+                    contador--;
+                }
+
+                // Si el contador es negativo en algún momento, significa que hay más paréntesis de cierre que de apertura
+                if (contador < 0)
+                {
+                    return false;
+                }
+            }
+
+            // Si el contador es igual a 0 al final, significa que hay la misma cantidad de paréntesis de apertura y cierre
+            return contador == 0;
+        }
+
     }
 }
