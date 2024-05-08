@@ -14,10 +14,7 @@ namespace ClaseNotaciones
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
+        private void Form1_Load(object sender, EventArgs e) { }
 
         /// <summary>
         /// Evento que se ejecuta al presionar la tecla "Enter" en cualquier textbox que lo tenga asignado.

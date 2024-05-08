@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
+using System.Resources;
 
 namespace ClaseNotaciones
 {
@@ -10,7 +10,7 @@ namespace ClaseNotaciones
     {
         public static char[] signos = new char[] { '+', '-', '*', '/', '^', '(', ')' };
     }
-    
+
     /// <summary>
     /// La clase Notación Infija se encarga de almacenar la notación del mismo nombre.
     /// Además permite sus conversiones a otras Notaciones. 
@@ -36,43 +36,45 @@ namespace ClaseNotaciones
         public NPosfija APosfija()   //YA ESTA FUNCIONAL EL METODO APosfija()
         {
             //Usamos la clase pila para almacenar correctamente los datos
-            
+
             Pila signos = new Pila(notacion.Length);
 
             //La cadena "nuevaNotacion" inicia como vacia.
             string nuevaNotacion = string.Empty;
 
             //Este bucle inspeccionará de "char" en "char" de la cadena "notacion"
-            for(int i = 0; i < notacion.Length; i++)
+            for (int i = 0; i < notacion.Length; i++)
             {
                 //si el caracter actual no es signo se añadirá directamente a la nueva notación
-                if (!Signos.signos.Contains(notacion[i])) { 
-                    nuevaNotacion += notacion[i]; 
+                if (!Signos.signos.Contains(notacion[i]))
+                {
+                    nuevaNotacion += notacion[i];
                 }
                 else
                 {
+                    nuevaNotacion += " ";
                     //de no serlo, realizará las siguientes acciones para cada operador. 
                     if (notacion[i] == '^')
                     {
                         //Mientras que la pila signos no esté vacia y la cima del signo sea "^"
                         //se desapilarán y agregarán a la nueva Notación.
-                        while ((char)signos.getNumEle() != 0 && (char)signos.Cima() == '^')
-                            nuevaNotacion += signos.Desapilar();
+                        while (signos.getNumEle() != 0 && (char)signos.Cima() == '^')
+                            nuevaNotacion += signos.Desapilar() + " ";
                         //El signo de potencia se apila dentro de la pila signos. 
                         signos.Apilar(notacion[i]);
                     }
                     else if (notacion[i] == '*' || notacion[i] == '/')
                     {
                         //La misma condición anterior, pero con los signos "+" y "-"
-                        while ((char)signos.getNumEle() != 0 && (char)signos.Cima() != '+' && (char)signos.Cima() != '-'
+                        while (signos.getNumEle() != 0 && (char)signos.Cima() != '+' && (char)signos.Cima() != '-'
                             && (char)signos.Cima() != '(')
-                            nuevaNotacion += (char)signos.Desapilar();
+                            nuevaNotacion += signos.Desapilar() + " ";
                         signos.Apilar(notacion[i]);
                     }
                     else if (notacion[i] == '+' || notacion[i] == '-')
                     {
                         while (signos.getNumEle() != 0 && (char)signos.Cima() != '(')
-                            nuevaNotacion += (char)signos.Desapilar();
+                            nuevaNotacion += signos.Desapilar() + " ";
                         signos.Apilar(notacion[i]);
                     }
                     //Si es "(" se apila dentro de la pila signos
@@ -81,9 +83,7 @@ namespace ClaseNotaciones
                     {
                         //Al ser ")" desapilará todos los signos hasta encontrar el simbolo "("
                         while (signos.getNumEle() > 0 && (char)signos.Cima() != '(')
-                        {
-                            nuevaNotacion += (char)signos.Desapilar();
-                        }
+                            nuevaNotacion += signos.Desapilar() + " ";
                         //desapila el simbolo restante, que será "("
                         signos.Desapilar();
                     }
@@ -91,7 +91,9 @@ namespace ClaseNotaciones
             }
             //Por útlimo, mientras que la pila signos no esté vacía. Se desapilarán los signos
             //hasta quedarse vacía y se guardarán en la cadena nuevaNotacion. 
-            while (signos.getNumEle() != 0) nuevaNotacion += signos.Desapilar();
+            nuevaNotacion += " ";
+            while (signos.getNumEle() != 0) nuevaNotacion += signos.Desapilar() + " ";
+            while (nuevaNotacion.Contains("  ")) nuevaNotacion = nuevaNotacion.Replace("  ", " ");
 
             //Regresa la nueva notación. 
             return new NPosfija(nuevaNotacion);
@@ -114,7 +116,7 @@ namespace ClaseNotaciones
     {
         ///atributo principal de la notación, permite manejar a los diferentes métodos. 
         string notacion;
-        
+
         /// <summary>
         /// Constructor de la clase Notación Posfija. 
         /// </summary>
@@ -133,7 +135,7 @@ namespace ClaseNotaciones
             //Instanciamos la clase pila. Una cadena "nuevaNotacion" y una nueva cadena "notación".
             //Ambas cadenas empezarán vacias. 
 
-            
+
             string nuevaNotacion = string.Empty;
             string notacion = string.Empty;
             Pila pila = new Pila(notacion.Length);
@@ -156,7 +158,7 @@ namespace ClaseNotaciones
                 }
             }
             //Al ultimo, vaciamos la pila almacenando los valores guardados en pila a la nuevaNotacion.
-            while (pila.getNumEle() > 0) nuevaNotacion += pila.Desapilar(); 
+            while (pila.getNumEle() > 0) nuevaNotacion += pila.Desapilar();
 
             //Regresamos el objeto de tipo Notacion Infija.
             return new NInfija(nuevaNotacion);
