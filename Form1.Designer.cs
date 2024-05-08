@@ -69,7 +69,6 @@
             this.txtInfija.Name = "txtInfija";
             this.txtInfija.Size = new System.Drawing.Size(226, 31);
             this.txtInfija.TabIndex = 2;
-            this.txtInfija.TextChanged += new System.EventHandler(this.txtInfija_TextChanged);
             this.txtInfija.Enter += new System.EventHandler(this.Focus_Enter);
             this.txtInfija.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyEnter);
             // 
@@ -151,6 +150,7 @@
             this.btnValidar.TabIndex = 13;
             this.btnValidar.Text = "Validar";
             this.btnValidar.UseVisualStyleBackColor = true;
+            this.btnValidar.Click += new System.EventHandler(this.btnValidar_Click);
             // 
             // btnEvaluar
             // 

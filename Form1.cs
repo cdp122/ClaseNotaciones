@@ -27,7 +27,7 @@ namespace ClaseNotaciones
         private void KeyEnter(object sender, KeyPressEventArgs e)
         {
             //Se activará unicamente al ser "Enter"
-            if(e.KeyChar == (char)Keys.Enter)
+            if (e.KeyChar == (char)Keys.Enter)
             {
                 //Limpiamos la memoria de objetos ya no usados. Con el fin de optimizar el programa
                 GC.Collect();
@@ -37,14 +37,14 @@ namespace ClaseNotaciones
                     if (txtInfija.Text != "")
                     {
                         txtPosfija.Text = "";
-                        
+
                         infija = new NInfija(txtInfija.Text);
                         txtPosfija.Text = infija.APosfija() + "";
                     }
                     else if (txtPosfija.Text != "")
                     {
                         txtInfija.Text = "";
-                        
+
                         posfija = new NPosfija(txtPosfija.Text);
                         txtInfija.Text = posfija.AInfija() + "";
                     }
@@ -62,17 +62,17 @@ namespace ClaseNotaciones
         private void Focus_Enter(object sender, EventArgs e)
         {
             TextBox t = (TextBox)sender;
-            if(t.Name == "txtInfija")
+            if (t.Name == "txtInfija")
             {
                 txtPosfija.Text = "";
-                
+
             }
-            else if(t.Name == "txtPosfija")
+            else if (t.Name == "txtPosfija")
             {
                 txtInfija.Text = "";
 
             }
-            else if(t.Name == "txtPrefija")
+            else if (t.Name == "txtPrefija")
             {
                 txtPosfija.Text = "";
                 txtInfija.Text = "";
@@ -81,13 +81,36 @@ namespace ClaseNotaciones
 
         private void btnTransformar_Click(object sender, EventArgs e)
         {
-            
-            
+            //Limpiamos la memoria de objetos ya no usados. Con el fin de optimizar el programa
+            GC.Collect();
+            try
+            {
+                //Dependerá donde ha sido invocado se convertirán en las notaciones adecuadas. 
+                if (txtInfija.Text != "")
+                {
+                    txtPosfija.Text = "";
+
+                    infija = new NInfija(txtInfija.Text);
+                    txtPosfija.Text = infija.APosfija() + "";
+                }
+                else if (txtPosfija.Text != "")
+                {
+                    txtInfija.Text = "";
+
+                    posfija = new NPosfija(txtPosfija.Text);
+                    txtInfija.Text = posfija.AInfija() + "";
+                }
+            }
+            //En caso de dar algun error, es previsto que fue por la notación mal ingresada. 
+            catch (Exception ex) { MessageBox.Show("Error, notación ingresada incorrecta\n" + ex.ToString()); }
         }
 
-        private void txtInfija_TextChanged(object sender, EventArgs e)
+        private void btnValidar_Click(object sender, EventArgs e)
         {
-
+            try { infija = new NInfija(txtInfija.Text); }
+            //En caso de dar algun error, es previsto que fue por la notación mal ingresada. 
+            catch (Exception ex) { MessageBox.Show("Error, notación ingresada incorrecta\n" + ex.ToString()); }
+            finally { MessageBox.Show("Notación Correcta"); }
         }
     }
 }
