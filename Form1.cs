@@ -75,7 +75,7 @@ namespace ClaseNotaciones
             {
                 txtPosfija.Text = "";
                 txtInfija.Text = "";
-                txtPrefija.Text = "";
+                
             }
             else if(t.Name == "txtPrefija")
             {
