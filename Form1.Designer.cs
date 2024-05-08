@@ -37,13 +37,16 @@
             this.txtRespuesta = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btnTransformar = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnValidar = new System.Windows.Forms.Button();
+            this.btnEvaluar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(160, 9);
+            this.label1.Location = new System.Drawing.Point(205, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(171, 33);
             this.label1.TabIndex = 0;
@@ -53,7 +56,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(7, 85);
+            this.label2.Location = new System.Drawing.Point(54, 140);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(159, 25);
             this.label2.TabIndex = 1;
@@ -62,7 +65,7 @@
             // txtInfija
             // 
             this.txtInfija.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtInfija.Location = new System.Drawing.Point(196, 82);
+            this.txtInfija.Location = new System.Drawing.Point(240, 140);
             this.txtInfija.Name = "txtInfija";
             this.txtInfija.Size = new System.Drawing.Size(226, 31);
             this.txtInfija.TabIndex = 2;
@@ -73,7 +76,7 @@
             // txtPosfija
             // 
             this.txtPosfija.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPosfija.Location = new System.Drawing.Point(196, 121);
+            this.txtPosfija.Location = new System.Drawing.Point(239, 183);
             this.txtPosfija.Name = "txtPosfija";
             this.txtPosfija.Size = new System.Drawing.Size(226, 31);
             this.txtPosfija.TabIndex = 4;
@@ -84,7 +87,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(7, 124);
+            this.label3.Location = new System.Drawing.Point(54, 183);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(179, 25);
             this.label3.TabIndex = 3;
@@ -94,16 +97,16 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(116, 42);
+            this.label5.Location = new System.Drawing.Point(143, 55);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(283, 24);
+            this.label5.Size = new System.Drawing.Size(132, 24);
             this.label5.TabIndex = 8;
-            this.label5.Text = "Realizado por: Carlos Puentestar";
+            this.label5.Text = "Realizado Por:";
             // 
             // txtRespuesta
             // 
             this.txtRespuesta.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRespuesta.Location = new System.Drawing.Point(196, 158);
+            this.txtRespuesta.Location = new System.Drawing.Point(240, 221);
             this.txtRespuesta.Name = "txtRespuesta";
             this.txtRespuesta.Size = new System.Drawing.Size(226, 31);
             this.txtRespuesta.TabIndex = 9;
@@ -112,7 +115,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(10, 160);
+            this.label6.Location = new System.Drawing.Point(54, 224);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(109, 25);
             this.label6.TabIndex = 10;
@@ -120,7 +123,7 @@
             // 
             // btnTransformar
             // 
-            this.btnTransformar.Location = new System.Drawing.Point(433, 121);
+            this.btnTransformar.Location = new System.Drawing.Point(470, 183);
             this.btnTransformar.Margin = new System.Windows.Forms.Padding(2);
             this.btnTransformar.Name = "btnTransformar";
             this.btnTransformar.Size = new System.Drawing.Size(73, 30);
@@ -129,11 +132,44 @@
             this.btnTransformar.UseVisualStyleBackColor = true;
             this.btnTransformar.Click += new System.EventHandler(this.btnTransformar_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(281, 55);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(157, 72);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Kevin Arteaga\r\nCarlos Puentestar\r\nAdrián Urresta";
+            // 
+            // btnValidar
+            // 
+            this.btnValidar.Location = new System.Drawing.Point(471, 143);
+            this.btnValidar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnValidar.Name = "btnValidar";
+            this.btnValidar.Size = new System.Drawing.Size(73, 30);
+            this.btnValidar.TabIndex = 13;
+            this.btnValidar.Text = "Validar";
+            this.btnValidar.UseVisualStyleBackColor = true;
+            // 
+            // btnEvaluar
+            // 
+            this.btnEvaluar.Location = new System.Drawing.Point(470, 220);
+            this.btnEvaluar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnEvaluar.Name = "btnEvaluar";
+            this.btnEvaluar.Size = new System.Drawing.Size(73, 30);
+            this.btnEvaluar.TabIndex = 14;
+            this.btnEvaluar.Text = "Evaluar";
+            this.btnEvaluar.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(523, 213);
+            this.ClientSize = new System.Drawing.Size(591, 283);
+            this.Controls.Add(this.btnEvaluar);
+            this.Controls.Add(this.btnValidar);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.btnTransformar);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtRespuesta);
@@ -162,6 +198,9 @@
         private System.Windows.Forms.TextBox txtRespuesta;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnTransformar;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnValidar;
+        private System.Windows.Forms.Button btnEvaluar;
     }
 }
 
