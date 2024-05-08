@@ -46,9 +46,9 @@ namespace ClaseNotaciones
                         }
                         else
                         {
-                            MessageBox.Show("Error de parentesis");
+                            MessageBox.Show("Error de parentesis😒", "INCORRECTO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
-                        
+
                     }
 
                 }
@@ -69,22 +69,6 @@ namespace ClaseNotaciones
             {
                 txtPosfija.Text = "";
 
-            }
-            else if (t.Name == "txtPosfija")
-            {
-                txtInfija.Text = "";
-
-            }
-            else if (t.Name == "txtPosfija")
-            {
-                txtPosfija.Text = "";
-                txtInfija.Text = "";
-
-            }
-            else if (t.Name == "txtPrefija")
-            {
-                txtPosfija.Text = "";
-                txtInfija.Text = "";
             }
         }
 
@@ -135,7 +119,7 @@ namespace ClaseNotaciones
 
                     if (verificarParentesis(txtInfija.Text))
                     {
-                        MessageBox.Show("🍻🍾Notación correcta🎉🥳", "CORRECTO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show("🍻🍾Notación correcta🎉🥳", "CORRECTO", MessageBoxButtons.OK);
                     }
                     else
                     {
