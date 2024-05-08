@@ -65,7 +65,7 @@
             // txtInfija
             // 
             this.txtInfija.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtInfija.Location = new System.Drawing.Point(240, 140);
+            this.txtInfija.Location = new System.Drawing.Point(296, 145);
             this.txtInfija.Name = "txtInfija";
             this.txtInfija.Size = new System.Drawing.Size(300, 37);
             this.txtInfija.TabIndex = 2;
@@ -75,7 +75,7 @@
             // txtPosfija
             // 
             this.txtPosfija.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPosfija.Location = new System.Drawing.Point(239, 183);
+            this.txtPosfija.Location = new System.Drawing.Point(295, 188);
             this.txtPosfija.Name = "txtPosfija";
             this.txtPosfija.Size = new System.Drawing.Size(300, 37);
             this.txtPosfija.TabIndex = 4;
@@ -91,17 +91,6 @@
             this.label3.Size = new System.Drawing.Size(223, 31);
             this.label3.TabIndex = 3;
             this.label3.Text = "Expresión Posfija";
-            //
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(7, 164);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(175, 25);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Expresión Prefija";
             // 
             // label5
             // 
@@ -109,16 +98,16 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(143, 55);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(283, 24);
+            this.label5.Size = new System.Drawing.Size(171, 29);
             this.label5.TabIndex = 8;
             this.label5.Text = "Realizado Por:";
             // 
             // txtRespuesta
             // 
             this.txtRespuesta.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRespuesta.Location = new System.Drawing.Point(240, 221);
+            this.txtRespuesta.Location = new System.Drawing.Point(296, 226);
             this.txtRespuesta.Name = "txtRespuesta";
-            this.txtRespuesta.Size = new System.Drawing.Size(226, 31);
+            this.txtRespuesta.Size = new System.Drawing.Size(226, 37);
             this.txtRespuesta.TabIndex = 9;
             // 
             // label6
@@ -127,48 +116,46 @@
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(54, 224);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(109, 25);
+            this.label6.Size = new System.Drawing.Size(137, 31);
             this.label6.TabIndex = 10;
             this.label6.Text = "Resultado";
             // 
             // btnTransformar
             // 
-            this.btnTransformar.Location = new System.Drawing.Point(470, 183);
+            this.btnTransformar.Location = new System.Drawing.Point(600, 188);
             this.btnTransformar.Margin = new System.Windows.Forms.Padding(2);
             this.btnTransformar.Name = "btnTransformar";
-            this.btnTransformar.Size = new System.Drawing.Size(73, 30);
+            this.btnTransformar.Size = new System.Drawing.Size(91, 30);
             this.btnTransformar.TabIndex = 11;
             this.btnTransformar.Text = "Transformar";
             this.btnTransformar.UseVisualStyleBackColor = true;
-            
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(281, 55);
+            this.label4.Location = new System.Drawing.Point(309, 55);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(157, 72);
+            this.label4.Size = new System.Drawing.Size(204, 87);
             this.label4.TabIndex = 12;
             this.label4.Text = "Kevin Arteaga\r\nCarlos Puentestar\r\nAdrián Urresta";
             // 
             // btnValidar
             // 
-            this.btnValidar.Location = new System.Drawing.Point(471, 143);
+            this.btnValidar.Location = new System.Drawing.Point(600, 152);
             this.btnValidar.Margin = new System.Windows.Forms.Padding(2);
             this.btnValidar.Name = "btnValidar";
-            this.btnValidar.Size = new System.Drawing.Size(73, 30);
+            this.btnValidar.Size = new System.Drawing.Size(90, 30);
             this.btnValidar.TabIndex = 13;
             this.btnValidar.Text = "Validar";
             this.btnValidar.UseVisualStyleBackColor = true;
-            
             // 
             // btnEvaluar
             // 
-            this.btnEvaluar.Location = new System.Drawing.Point(470, 220);
+            this.btnEvaluar.Location = new System.Drawing.Point(527, 230);
             this.btnEvaluar.Margin = new System.Windows.Forms.Padding(2);
             this.btnEvaluar.Name = "btnEvaluar";
-            this.btnEvaluar.Size = new System.Drawing.Size(73, 30);
+            this.btnEvaluar.Size = new System.Drawing.Size(91, 30);
             this.btnEvaluar.TabIndex = 14;
             this.btnEvaluar.Text = "Evaluar";
             this.btnEvaluar.UseVisualStyleBackColor = true;
@@ -177,7 +164,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(591, 283);
+            this.ClientSize = new System.Drawing.Size(703, 283);
             this.Controls.Add(this.btnEvaluar);
             this.Controls.Add(this.btnValidar);
             this.Controls.Add(this.label4);
@@ -190,7 +177,7 @@
             this.Controls.Add(this.txtInfija);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Notaciones";
             this.Load += new System.EventHandler(this.Form1_Load);
