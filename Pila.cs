@@ -6,32 +6,42 @@ using System.Threading.Tasks;
 
 namespace ClaseNotaciones
 {
-    internal class Pila
+    public class Pila
     {
         private int tam;
         private int numEle;
-        private Object[] Arreglo;
+        private object[] Arreglo;
 
         public Pila(int tam)
         {
             this.tam = tam;
             this.numEle = 0;
-            Arreglo = new Object[tam];
-
+            Arreglo = new object[tam];
         }
 
         public void Apilar(object elemento)
         {
-            Arreglo[numEle++] = elemento;
-            //numEle++;
+            if (!Llena())
+            {
+                Arreglo[numEle++] = elemento;
+            }
+            else
+            {
+                throw new InvalidOperationException("La pila está llena.");
+            }
         }
 
         public object Desapilar()
         {
-            numEle--;
-            return Arreglo[numEle];
+            if (!Vacia())
+            {
+                return Arreglo[--numEle];
+            }
+            else
+            {
+                throw new InvalidOperationException("La pila está vacía.");
+            }
         }
-
 
         public bool Vacia()
         {
@@ -45,36 +55,45 @@ namespace ClaseNotaciones
 
         public object Cima()
         {
-            return Arreglo[numEle - 1];
+            if (!Vacia())
+            {
+                return Arreglo[numEle - 1];
+            }
+            else
+            {
+                throw new InvalidOperationException("La pila está vacía.");
+            }
         }
 
-        public int getTam()
+        public int GetTam()
         {
             return tam;
         }
 
-        public void setTam(int tam)
+        public void SetTam(int tam)
         {
             this.tam = tam;
         }
 
-        public int getNumEle()
+        public int GetNumEle()
         {
             return numEle;
         }
 
-        public void setNumEle(int numEle)
+        public void SetNumEle(int numEle)
         {
             this.numEle = numEle;
         }
-        public object[] getArreglo()
+
+        public object[] GetArreglo()
         {
             return Arreglo;
         }
 
-        public void setArreglo(object[] Arreglo)
+        public void SetArreglo(object[] Arreglo)
         {
             this.Arreglo = Arreglo;
         }
     }
+
 }
