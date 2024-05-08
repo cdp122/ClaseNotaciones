@@ -75,7 +75,7 @@ namespace ClaseNotaciones
             this.tam = tam;
         }
 
-        public int GetNumEle()
+        public int getNumEle()
         {
             return numEle;
         }
