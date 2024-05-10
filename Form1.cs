@@ -112,8 +112,16 @@ namespace ClaseNotaciones
 
         private void btnEvaluar_Click(object sender, EventArgs e)
         {
-            posfija = new NPosfija(txtPosfija.Text);
-            double result = posfija.CalcularResultado(txtPosfija.Text);
+            if (txtPosfija.Text != "")
+                posfija = new NPosfija(txtPosfija.Text);
+            else
+            {
+                txtPosfija.Text = "";
+                infija = new NInfija(txtInfija.Text);
+                posfija = infija.APosfija();
+                txtPosfija.Text = posfija + "";
+            }
+            double result = posfija.CalcularResultado(posfija.ToString().Replace(".",","));
             string r = result.ToString();
             txtRespuesta.Text = r;
         }

@@ -23,7 +23,6 @@ namespace ClaseNotaciones
         public void Apilar(Object elemento)
         {
             Arreglo[numEle++] = elemento;
-            //numEle++;
         }
 
         public Object Desapilar()

@@ -179,12 +179,10 @@ namespace ClaseNotaciones
             //Le quito el ultimo espacio de txtResultado
             notacion.Substring(0, notacion.Length - 1);
 
-            Pila pila_aux = new Pila(notacion.Length);
-
             // Dividimos la expresión en tokens utilizando el espacio como delimitador
             string[] tokens = notacion.Split(' ');
 
-
+            Pila pila_aux = new Pila(tokens.Length / 2); 
 
             foreach (string token in tokens)
             {
@@ -193,6 +191,7 @@ namespace ClaseNotaciones
                 {
                     pila_aux.Apilar(number);
                 }
+                else if (token == "") continue;
                 else
                 {
                     // Si el token es un operador, realizamos la operación correspondiente
