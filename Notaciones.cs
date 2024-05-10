@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Resources;
 
 namespace ClaseNotaciones
@@ -171,6 +172,57 @@ namespace ClaseNotaciones
         public override string ToString()
         {
             return notacion;
+        }
+
+        public double CalcularResultado(string notacion)
+        {
+            //Le quito el ultimo espacio de txtResultado
+            notacion.Substring(0, notacion.Length - 1);
+
+            Pila pila_aux = new Pila(notacion.Length);
+
+            // Dividimos la expresión en tokens utilizando el espacio como delimitador
+            string[] tokens = notacion.Split(' ');
+
+
+
+            foreach (string token in tokens)
+            {
+                // Si el token es un número, lo agregamos a la pila
+                if (double.TryParse(token, out double number))
+                {
+                    pila_aux.Apilar(number);
+                }
+                else
+                {
+                    // Si el token es un operador, realizamos la operación correspondiente
+                    double operand2 = Convert.ToDouble(pila_aux.Desapilar());
+                    double operand1 = Convert.ToDouble(pila_aux.Desapilar());
+
+                    switch (token)
+                    {
+                        case "+":
+                            pila_aux.Apilar(operand1 + operand2);
+                            break;
+                        case "-":
+                            pila_aux.Apilar(operand1 - operand2);
+                            break;
+                        case "*":
+                            pila_aux.Apilar(operand1 * operand2);
+                            break;
+                        case "/":
+                            pila_aux.Apilar(operand1 / operand2);
+                            break;
+                        default:
+                            throw new ArgumentException("Token inválido: " + token);
+                    }
+                }
+            }
+
+            
+            // El resultado final estará en la cima de la pila
+            return Convert.ToDouble(pila_aux.Desapilar());
+            
         }
     }
 }

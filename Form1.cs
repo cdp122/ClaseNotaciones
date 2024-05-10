@@ -109,5 +109,13 @@ namespace ClaseNotaciones
             catch (Exception ex) { MessageBox.Show("Error, notación ingresada incorrecta\n" + ex.ToString()); }
             finally { MessageBox.Show("Notación Correcta"); }
         }
+
+        private void btnEvaluar_Click(object sender, EventArgs e)
+        {
+            posfija = new NPosfija(txtPosfija.Text);
+            double result = posfija.CalcularResultado(txtPosfija.Text);
+            string r = result.ToString();
+            txtRespuesta.Text = r;
+        }
     }
 }

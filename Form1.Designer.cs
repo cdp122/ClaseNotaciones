@@ -161,6 +161,7 @@
             this.btnEvaluar.TabIndex = 14;
             this.btnEvaluar.Text = "Evaluar";
             this.btnEvaluar.UseVisualStyleBackColor = true;
+            this.btnEvaluar.Click += new System.EventHandler(this.btnEvaluar_Click);
             // 
             // Form1
             // 
