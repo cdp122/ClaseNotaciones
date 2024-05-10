@@ -33,15 +33,11 @@ namespace ClaseNotaciones
                     //Dependerá donde ha sido invocado se convertirán en las notaciones adecuadas. 
                     if (txtInfija.Text != "")
                     {
-                        txtPosfija.Text = "";
-
                         infija = new NInfija(txtInfija.Text); 
                         txtPosfija.Text = infija.APosfija().ToString().Replace(" ", "");
                     }
                     else if (txtPosfija.Text != "")
                     {
-                        txtInfija.Text = "";
-
                         posfija = new NPosfija(txtPosfija.Text);
                         txtInfija.Text = posfija.AInfija() + "";
                     }
@@ -85,15 +81,11 @@ namespace ClaseNotaciones
                 //Dependerá donde ha sido invocado se convertirán en las notaciones adecuadas. 
                 if (txtInfija.Text != "")
                 {
-                    txtPosfija.Text = "";
-
                     infija = new NInfija(txtInfija.Text); 
                     txtPosfija.Text = posfija.ToString().Replace(" ", "");
                 }
                 else if (txtPosfija.Text != "")
                 {
-                    txtInfija.Text = "";
-
                     posfija = new NPosfija(txtPosfija.Text);
                     txtInfija.Text = posfija.AInfija() + "";
                 }
@@ -116,7 +108,6 @@ namespace ClaseNotaciones
                 posfija = new NPosfija(txtPosfija.Text);
             else
             {
-                txtPosfija.Text = "";
                 infija = new NInfija(txtInfija.Text);
                 posfija = infija.APosfija();
                 txtPosfija.Text = posfija.ToString().Replace(" ","");

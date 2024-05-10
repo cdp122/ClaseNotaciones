@@ -136,10 +136,9 @@ namespace ClaseNotaciones
             //Instanciamos la clase pila. Una cadena "nuevaNotacion" y una nueva cadena "notación".
             //Ambas cadenas empezarán vacias. 
 
-
             string nuevaNotacion = string.Empty;
             string notacion = string.Empty;
-            Pila pila = new Pila(notacion.Length);
+            Pila pila = new Pila(this.notacion.Length);
 
             //Por cada "char" que haya en la notación de la clase se realizará:
             foreach (char c in this.notacion)
@@ -150,7 +149,7 @@ namespace ClaseNotaciones
                 if (Signos.signos.Contains(c))
                 {
                     notacion = (string)pila.Desapilar();
-                    pila.Apilar((char)pila.Desapilar() + c + notacion);
+                    pila.Apilar((string)pila.Desapilar() + c + notacion);
                 }
                 //de no ser signo, solo se almacena el "char" actual del foreach. 
                 else
