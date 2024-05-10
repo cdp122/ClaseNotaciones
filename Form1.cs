@@ -35,8 +35,8 @@ namespace ClaseNotaciones
                     {
                         txtPosfija.Text = "";
 
-                        infija = new NInfija(txtInfija.Text);
-                        txtPosfija.Text = infija.APosfija() + "";
+                        infija = new NInfija(txtInfija.Text); 
+                        txtPosfija.Text = infija.APosfija().ToString().Replace(" ", "");
                     }
                     else if (txtPosfija.Text != "")
                     {
@@ -87,8 +87,8 @@ namespace ClaseNotaciones
                 {
                     txtPosfija.Text = "";
 
-                    infija = new NInfija(txtInfija.Text);
-                    txtPosfija.Text = infija.APosfija() + "";
+                    infija = new NInfija(txtInfija.Text); 
+                    txtPosfija.Text = posfija.ToString().Replace(" ", "");
                 }
                 else if (txtPosfija.Text != "")
                 {
@@ -119,9 +119,9 @@ namespace ClaseNotaciones
                 txtPosfija.Text = "";
                 infija = new NInfija(txtInfija.Text);
                 posfija = infija.APosfija();
-                txtPosfija.Text = posfija + "";
+                txtPosfija.Text = posfija.ToString().Replace(" ","");
             }
-            double result = posfija.CalcularResultado(posfija.ToString().Replace(".",","));
+            double result = posfija.CalcularResultado(posfija.ToString());
             string r = result.ToString();
             txtRespuesta.Text = r;
         }
