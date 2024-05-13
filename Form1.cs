@@ -82,7 +82,7 @@ namespace ClaseNotaciones
                 if (txtInfija.Text != "")
                 {
                     infija = new NInfija(txtInfija.Text); 
-                    txtPosfija.Text = posfija.ToString().Replace(" ", "");
+                    txtPosfija.Text = infija.APosfija().ToString().Replace(" ", "");
                 }
                 else if (txtPosfija.Text != "")
                 {

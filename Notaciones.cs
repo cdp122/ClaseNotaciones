@@ -211,6 +211,9 @@ namespace ClaseNotaciones
                         case "/":
                             pila_aux.Apilar(operand1 / operand2);
                             break;
+                        case "^":
+                            pila_aux.Apilar(Math.Pow(operand1,operand2));
+                            break;
                         default:
                             throw new ArgumentException("Token inválido: " + token);
                     }
