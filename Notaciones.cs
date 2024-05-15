@@ -176,12 +176,12 @@ namespace ClaseNotaciones
         public double CalcularResultado(string notacion)
         {
             //Le quito el ultimo espacio de txtResultado
-            notacion.Substring(0, notacion.Length - 1);
+            notacion = notacion.Substring(0, notacion.Length - 1);
 
             // Dividimos la expresión en tokens utilizando el espacio como delimitador
             string[] tokens = notacion.Split(' ');
 
-            Pila pila_aux = new Pila(tokens.Length / 2); 
+            Pila pila_aux = new Pila(tokens.Length/2 + 1); 
 
             foreach (string token in tokens)
             {
@@ -209,6 +209,10 @@ namespace ClaseNotaciones
                             pila_aux.Apilar(operand1 * operand2);
                             break;
                         case "/":
+                            if (operand2 == 0)
+                            {
+                                throw new DivideByZeroException("División por cero.");
+                            }
                             pila_aux.Apilar(operand1 / operand2);
                             break;
                         case "^":
@@ -219,8 +223,6 @@ namespace ClaseNotaciones
                     }
                 }
             }
-
-            
             // El resultado final estará en la cima de la pila
             return Convert.ToDouble(pila_aux.Desapilar());
             

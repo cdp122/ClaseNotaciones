@@ -110,9 +110,11 @@ namespace ClaseNotaciones
             {
                 infija = new NInfija(txtInfija.Text);
                 posfija = infija.APosfija();
-                txtPosfija.Text = posfija.ToString().Replace(" ","");
+                txtPosfija.Text = posfija.ToString().Replace(" ", "");
             }
-            double result = posfija.CalcularResultado(posfija.ToString());
+            string not = posfija.ToString();
+            string not2 = not.Replace('.', ',');
+            double result = posfija.CalcularResultado(not2);
             string r = result.ToString();
             txtRespuesta.Text = r;
         }
