@@ -74,9 +74,11 @@
             // 
             // txtPosfija
             // 
+            this.txtPosfija.BackColor = System.Drawing.Color.White;
             this.txtPosfija.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPosfija.Location = new System.Drawing.Point(239, 183);
             this.txtPosfija.Name = "txtPosfija";
+            this.txtPosfija.ReadOnly = true;
             this.txtPosfija.Size = new System.Drawing.Size(226, 31);
             this.txtPosfija.TabIndex = 4;
             this.txtPosfija.Enter += new System.EventHandler(this.Focus_Enter);
@@ -104,9 +106,11 @@
             // 
             // txtRespuesta
             // 
+            this.txtRespuesta.BackColor = System.Drawing.Color.White;
             this.txtRespuesta.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRespuesta.Location = new System.Drawing.Point(240, 221);
             this.txtRespuesta.Name = "txtRespuesta";
+            this.txtRespuesta.ReadOnly = true;
             this.txtRespuesta.Size = new System.Drawing.Size(226, 31);
             this.txtRespuesta.TabIndex = 9;
             // 

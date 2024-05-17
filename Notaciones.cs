@@ -177,6 +177,7 @@ namespace ClaseNotaciones
         {
             //Le quito el ultimo espacio de txtResultado
             notacion.Substring(0, notacion.Length - 1);
+            notacion = notacion.Replace(".", ",");
 
             // Dividimos la expresión en tokens utilizando el espacio como delimitador
             string[] tokens = notacion.Split(' ');
