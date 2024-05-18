@@ -64,10 +64,19 @@ namespace ClaseNotaciones
 
         private void btnValidar_Click(object sender, EventArgs e)
         {
-            try { infija = new NInfija(txtInfija.Text); }
-            //En caso de dar algun error, es previsto que fue por la notación mal ingresada. 
-            catch (Exception ex) { MessageBox.Show("Error, notación ingresada incorrecta\n" + ex.ToString()); }
-            finally { MessageBox.Show("Notación Correcta"); }
+            //Para que cuando se de click en el botón y no se encuentre nada, se muestre mensaje
+            if(string.IsNullOrWhiteSpace(this.txtInfija.Text))
+            {
+                MessageBox.Show("No hay contenido que validar");
+            }
+            else
+            {
+                try { infija = new NInfija(txtInfija.Text); }
+                //En caso de dar algun error, es previsto que fue por la notación mal ingresada. 
+                catch (Exception ex) { MessageBox.Show("Error, notación ingresada incorrecta\n" + ex.ToString()); }
+                finally { MessageBox.Show("Notación Correcta"); }
+            }
+            
         }
 
         private void btnEvaluar_Click(object sender, EventArgs e)
