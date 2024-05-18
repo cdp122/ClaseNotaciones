@@ -30,17 +30,8 @@ namespace ClaseNotaciones
                 GC.Collect();
                 try
                 {
-                    //Dependerá donde ha sido invocado se convertirán en las notaciones adecuadas. 
-                    if (txtInfija.Text != "")
-                    {
-                        infija = new NInfija(txtInfija.Text); 
-                        txtPosfija.Text = infija.APosfija().ToString().Replace(" ", "");
-                    }
-                    else if (txtPosfija.Text != "")
-                    {
-                        posfija = new NPosfija(txtPosfija.Text);
-                        txtInfija.Text = posfija.AInfija() + "";
-                    }
+                    infija = new NInfija(txtInfija.Text); 
+                    txtPosfija.Text = infija.APosfija().ToString();
                 }
                 //En caso de dar algun error, es previsto que fue por la notación mal ingresada. 
                 catch (Exception ex) { MessageBox.Show("Error, notación ingresada incorrecta\n" + ex.ToString()); }
@@ -54,22 +45,8 @@ namespace ClaseNotaciones
         /// <param name="e"></param>
         private void Focus_Enter(object sender, EventArgs e)
         {
-            TextBox t = (TextBox)sender;
-            if (t.Name == "txtInfija")
-            {
-                txtPosfija.Text = "";
-
-            }
-            else if (t.Name == "txtPosfija")
-            {
-                txtInfija.Text = "";
-
-            }
-            else if (t.Name == "txtPrefija")
-            {
-                txtPosfija.Text = "";
-                txtInfija.Text = "";
-            }
+            txtPosfija.Text = "";
+            txtRespuesta.Text = string.Empty;
         }
 
         private void btnTransformar_Click(object sender, EventArgs e)
@@ -78,17 +55,8 @@ namespace ClaseNotaciones
             GC.Collect();
             try
             {
-                //Dependerá donde ha sido invocado se convertirán en las notaciones adecuadas. 
-                if (txtInfija.Text != "")
-                {
-                    infija = new NInfija(txtInfija.Text); 
-                    txtPosfija.Text = infija.APosfija().ToString().Replace(" ", "");
-                }
-                else if (txtPosfija.Text != "")
-                {
-                    posfija = new NPosfija(txtPosfija.Text);
-                    txtInfija.Text = posfija.AInfija() + "";
-                }
+                infija = new NInfija(txtInfija.Text); 
+                txtPosfija.Text = infija.APosfija() + "";
             }
             //En caso de dar algun error, es previsto que fue por la notación mal ingresada. 
             catch (Exception ex) { MessageBox.Show("Error, notación ingresada incorrecta\n" + ex.ToString()); }
@@ -96,16 +64,25 @@ namespace ClaseNotaciones
 
         private void btnValidar_Click(object sender, EventArgs e)
         {
-            try { infija = new NInfija(txtInfija.Text); }
-            //En caso de dar algun error, es previsto que fue por la notación mal ingresada. 
-            catch (Exception ex) { MessageBox.Show("Error, notación ingresada incorrecta\n" + ex.ToString()); }
-            finally { MessageBox.Show("Notación Correcta"); }
+            //Para que cuando se de click en el botón y no se encuentre nada, se muestre mensaje
+            if(string.IsNullOrWhiteSpace(this.txtInfija.Text))
+            {
+                MessageBox.Show("No hay contenido que validar");
+            }
+            else
+            {
+                try { infija = new NInfija(txtInfija.Text); }
+                //En caso de dar algun error, es previsto que fue por la notación mal ingresada. 
+                catch (Exception ex) { MessageBox.Show("Error, notación ingresada incorrecta\n" + ex.ToString()); }
+                finally { MessageBox.Show("Notación Correcta"); }
+            }
+            
         }
 
         private void btnEvaluar_Click(object sender, EventArgs e)
         {
-            if (txtPosfija.Text != "")
-                posfija = new NPosfija(txtPosfija.Text);
+            //Primero va convertir de infija a posfija, si ya fue transformada continua con la resolución.
+            if (txtPosfija.Text != "") posfija = new NPosfija(txtPosfija.Text);
             else
             {
                 infija = new NInfija(txtInfija.Text);
@@ -116,6 +93,7 @@ namespace ClaseNotaciones
             string not2 = not.Replace('.', ',');
             double result = posfija.CalcularResultado(not2);
             string r = result.ToString();
+            //finalmente lo imprime
             txtRespuesta.Text = r;
         }
     }

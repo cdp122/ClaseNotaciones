@@ -41,20 +41,6 @@ namespace ClaseNotaciones
         {
             return numEle == tam;
         }
-
-       /* public String Reporte()
-        {
-            string r = "";
-            //Notas not;
-            for (int i = 0; i < this.numEle; i++)
-            {
-                //not = (Notas)Arreglo[i];
-                //r = not.getCedula() + " " + not.getCodMateria() + " " + not.getNota1() + " " + not.getNota2() + "\n" + r;
-            }
-            return r;
-        }*/
-
-
         public Object Cima()
         {
             return Arreglo[numEle - 1];
