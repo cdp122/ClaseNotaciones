@@ -173,27 +173,38 @@ namespace ClaseNotaciones
             return notacion;
         }
 
+        /// <summary>
+        /// Calcula el resultado de una expresión en notación polaca inversa (RPN).
+        /// </summary>
+        /// <param name="notacion">La expresión en notación postfija como una cadena de texto.</param>
+        /// <returns>El resultado de la evaluación de la expresión.</returns>
+        /// <exception cref="DivideByZeroException">Se lanza cuando ocurre una división por cero.</exception>
+        /// <exception cref="ArgumentException">Se lanza cuando se encuentra un token inválido.</exception>
         public double CalcularResultado(string notacion)
         {
-            //Le quito el ultimo espacio de txtResultado
+            // Le quito el último espacio de la cadena de notación.
             notacion = notacion.Substring(0, notacion.Length - 1);
 
-            // Dividimos la expresión en tokens utilizando el espacio como delimitador
+            // Divide la expresión en tokens utilizando el espacio como delimitador.
             string[] tokens = notacion.Split(' ');
 
-            Pila pila_aux = new Pila(tokens.Length/2 + 1); 
+            // Crea una pila auxiliar con una capacidad suficiente para almacenar los números de la expresión.
+            Pila pila_aux = new Pila(tokens.Length/2 + 1);
 
+            // Itera sobre cada token en la expresión.
             foreach (string token in tokens)
             {
-                // Si el token es un número, lo agregamos a la pila
+                // Si el token es un número, lo convierte y lo apila.
                 if (double.TryParse(token, out double number))
                 {
                     pila_aux.Apilar(number);
                 }
+                // Ignora los tokens vacíos.
                 else if (token == "") continue;
                 else
                 {
-                    // Si el token es un operador, realizamos la operación correspondiente
+                    // Si el token es un operador, desapila los dos últimos operandos
+                    // y realiza la operación correspondiente.
                     double operand2 = Convert.ToDouble(pila_aux.Desapilar());
                     double operand1 = Convert.ToDouble(pila_aux.Desapilar());
 
@@ -211,6 +222,7 @@ namespace ClaseNotaciones
                         case "/":
                             if (operand2 == 0)
                             {
+                                // Verifica si se intenta dividir por cero y lanza una excepción si es el caso.
                                 throw new DivideByZeroException("División por cero.");
                             }
                             pila_aux.Apilar(operand1 / operand2);
@@ -219,11 +231,12 @@ namespace ClaseNotaciones
                             pila_aux.Apilar(Math.Pow(operand1,operand2));
                             break;
                         default:
+                            // Lanza una excepción si se encuentra un operador no reconocido.
                             throw new ArgumentException("Token inválido: " + token);
                     }
                 }
             }
-            // El resultado final estará en la cima de la pila
+            // El resultado final estará en la cima de la pila y se retorna desapilandolo.
             return Convert.ToDouble(pila_aux.Desapilar());
             
         }
