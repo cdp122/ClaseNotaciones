@@ -47,7 +47,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("MV Boli", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(273, 11);
+            this.label1.Location = new System.Drawing.Point(247, 9);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(138, 32);
@@ -58,7 +58,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("MV Boli", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(72, 172);
+            this.label2.Location = new System.Drawing.Point(46, 170);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(188, 32);
@@ -68,7 +68,7 @@
             // txtInfija
             // 
             this.txtInfija.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtInfija.Location = new System.Drawing.Point(289, 172);
+            this.txtInfija.Location = new System.Drawing.Point(263, 170);
             this.txtInfija.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtInfija.Name = "txtInfija";
             this.txtInfija.Size = new System.Drawing.Size(375, 37);
@@ -80,7 +80,7 @@
             // 
             this.txtPosfija.BackColor = System.Drawing.Color.White;
             this.txtPosfija.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPosfija.Location = new System.Drawing.Point(288, 225);
+            this.txtPosfija.Location = new System.Drawing.Point(262, 223);
             this.txtPosfija.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPosfija.Name = "txtPosfija";
             this.txtPosfija.ReadOnly = true;
@@ -93,7 +93,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("MV Boli", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(72, 225);
+            this.label3.Location = new System.Drawing.Point(46, 223);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(206, 32);
@@ -104,7 +104,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("MV Boli", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(191, 68);
+            this.label5.Location = new System.Drawing.Point(165, 66);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(180, 32);
@@ -115,7 +115,7 @@
             // 
             this.txtRespuesta.BackColor = System.Drawing.Color.White;
             this.txtRespuesta.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRespuesta.Location = new System.Drawing.Point(289, 272);
+            this.txtRespuesta.Location = new System.Drawing.Point(263, 270);
             this.txtRespuesta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtRespuesta.Name = "txtRespuesta";
             this.txtRespuesta.ReadOnly = true;
@@ -126,7 +126,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("MV Boli", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(72, 276);
+            this.label6.Location = new System.Drawing.Point(46, 274);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(125, 32);
@@ -136,10 +136,10 @@
             // btnTransformar
             // 
             this.btnTransformar.Font = new System.Drawing.Font("MV Boli", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTransformar.Location = new System.Drawing.Point(670, 223);
+            this.btnTransformar.Location = new System.Drawing.Point(644, 221);
             this.btnTransformar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTransformar.Name = "btnTransformar";
-            this.btnTransformar.Size = new System.Drawing.Size(97, 37);
+            this.btnTransformar.Size = new System.Drawing.Size(115, 37);
             this.btnTransformar.TabIndex = 11;
             this.btnTransformar.Text = "Transformar";
             this.btnTransformar.UseVisualStyleBackColor = true;
@@ -149,7 +149,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("MV Boli", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(375, 68);
+            this.label4.Location = new System.Drawing.Point(349, 66);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(220, 96);
@@ -160,10 +160,10 @@
             // 
             this.btnValidar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnValidar.Font = new System.Drawing.Font("MV Boli", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnValidar.Location = new System.Drawing.Point(671, 174);
+            this.btnValidar.Location = new System.Drawing.Point(645, 172);
             this.btnValidar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnValidar.Name = "btnValidar";
-            this.btnValidar.Size = new System.Drawing.Size(97, 37);
+            this.btnValidar.Size = new System.Drawing.Size(114, 37);
             this.btnValidar.TabIndex = 13;
             this.btnValidar.Text = "Validar";
             this.btnValidar.UseVisualStyleBackColor = true;
@@ -172,10 +172,10 @@
             // btnEvaluar
             // 
             this.btnEvaluar.Font = new System.Drawing.Font("MV Boli", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEvaluar.Location = new System.Drawing.Point(670, 269);
+            this.btnEvaluar.Location = new System.Drawing.Point(644, 267);
             this.btnEvaluar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEvaluar.Name = "btnEvaluar";
-            this.btnEvaluar.Size = new System.Drawing.Size(97, 37);
+            this.btnEvaluar.Size = new System.Drawing.Size(115, 37);
             this.btnEvaluar.TabIndex = 14;
             this.btnEvaluar.Text = "Evaluar";
             this.btnEvaluar.UseVisualStyleBackColor = true;
