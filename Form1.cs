@@ -71,6 +71,7 @@ namespace ClaseNotaciones
             }
             else
             {
+                
                 try { infija = new NInfija(txtInfija.Text); }
                 //En caso de dar algun error, es previsto que fue por la notación mal ingresada. 
                 catch (Exception ex) { MessageBox.Show("Error, notación ingresada incorrecta\n" + ex.ToString()); }
