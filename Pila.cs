@@ -23,7 +23,7 @@ namespace ClaseNotaciones
         public void Apilar(Object elemento)
         {
             Arreglo[numEle++] = elemento;
-        }
+         }
 
         public Object Desapilar()
         {
@@ -44,6 +44,11 @@ namespace ClaseNotaciones
         public Object Cima()
         {
             return Arreglo[numEle - 1];
+        }
+
+        public bool minElem() 
+        {
+            return numEle >= 2;
         }
 
         public int getTam()

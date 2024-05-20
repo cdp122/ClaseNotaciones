@@ -186,6 +186,7 @@ namespace ClaseNotaciones
             notacion = notacion.Substring(0, notacion.Length - 1);
 
             // Divide la expresión en tokens utilizando el espacio como delimitador.
+
             string[] tokens = notacion.Split(' ');
 
             // Crea una pila auxiliar con una capacidad suficiente para almacenar los números de la expresión.
@@ -201,44 +202,66 @@ namespace ClaseNotaciones
                 }
                 // Ignora los tokens vacíos.
                 else if (token == "") continue;
+
                 else
                 {
-                    // Si el token es un operador, desapila los dos últimos operandos
-                    // y realiza la operación correspondiente.
-                    double operand2 = Convert.ToDouble(pila_aux.Desapilar());
-                    double operand1 = Convert.ToDouble(pila_aux.Desapilar());
 
-                    switch (token)
-                    {
-                        case "+":
-                            pila_aux.Apilar(operand1 + operand2);
-                            break;
-                        case "-":
-                            pila_aux.Apilar(operand1 - operand2);
-                            break;
-                        case "*":
-                            pila_aux.Apilar(operand1 * operand2);
-                            break;
-                        case "/":
-                            if (operand2 == 0)
-                            {
-                                // Verifica si se intenta dividir por cero y lanza una excepción si es el caso.
-                                throw new DivideByZeroException("División por cero.");
-                            }
-                            pila_aux.Apilar(operand1 / operand2);
-                            break;
-                        case "^":
-                            pila_aux.Apilar(Math.Pow(operand1,operand2));
-                            break;
-                        default:
-                            // Lanza una excepción si se encuentra un operador no reconocido.
-                            throw new ArgumentException("Token inválido: " + token);
-                    }
+                        // Si el token es un operador, desapila los dos últimos operandos
+                        // y realiza la operación correspondiente.
+                        double operand2 = Convert.ToDouble(pila_aux.Desapilar());
+                        double operand1 = Convert.ToDouble(pila_aux.Desapilar());
+
+                        switch (token)
+                        {
+                            case "+":
+                                pila_aux.Apilar(operand1 + operand2);
+                                break;
+                            case "-":
+                                pila_aux.Apilar(operand1 - operand2);
+                                break;
+                            case "*":
+                                pila_aux.Apilar(operand1 * operand2);
+                                break;
+                            case "/":
+                                if (operand2 == 0)
+                                {
+                                    // Verifica si se intenta dividir por cero y lanza una excepción si es el caso.
+                                    throw new DivideByZeroException("División por cero.");
+                                }
+                                pila_aux.Apilar(operand1 / operand2);
+                                break;
+                            case "^":
+                                pila_aux.Apilar(Math.Pow(operand1, operand2));
+                                break;
+                            default:
+                                // Lanza una excepción si se encuentra un operador no reconocido.
+                                throw new ArgumentException("Token inválido: " + token);
+                        }
                 }
             }
             // El resultado final estará en la cima de la pila y se retorna desapilandolo.
             return Convert.ToDouble(pila_aux.Desapilar());
             
         }
+        public int Factorial(int n)
+        {
+            if (n < 0)
+            {
+                Console.WriteLine("Factorial no definido para números negativos");
+                return -1;
+            }
+            else if (n == 1 || n == 0) return 1;
+            else
+            {
+                int resultado = 1;
+                for (int i = 2; i <= n; i++)
+                {
+                    resultado *= i;
+                }
+                return resultado;
+            }
+        }
+
     }
+
 }
