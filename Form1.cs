@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace ClaseNotaciones
@@ -23,28 +24,28 @@ namespace ClaseNotaciones
         /// <param name="e"></param>
         private void KeyEnter(object sender, KeyPressEventArgs e)
         {
-            
-                //Se activará unicamente al ser "Enter"
-                if (e.KeyChar == (char)Keys.Enter)
-                {
-                    // Verificar mezcla de letras y números
-                    if (!VerificarSinMezclaLetrasYNumeros(this.txtInfija.Text))
-                    {
-                        MessageBox.Show("Error: No se permite la mezcla de letras y números.");
-                        return; // Salir del método si hay mezcla de letras y números
-                    }
 
-                    // Limpiamos la memoria de objetos ya no usados. Con el fin de optimizar el programa
-                    GC.Collect();
-                    try
-                    {
-                        infija = new NInfija(txtInfija.Text);
-                        txtPosfija.Text = infija.APosfija().ToString();
-                    }
-                    //En caso de dar algun error, es previsto que fue por la notación mal ingresada. 
-                    catch (Exception ex) { MessageBox.Show("Error, notación ingresada incorrecta\n" + ex.ToString()); }
+            //Se activará unicamente al ser "Enter"
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                // Verificar mezcla de letras y números
+                if (!VerificarSinMezclaLetrasYNumeros(this.txtInfija.Text))
+                {
+                    MessageBox.Show("Error: No se permite la mezcla de letras y números.");
+                    return; // Salir del método si hay mezcla de letras y números
                 }
-            
+
+                // Limpiamos la memoria de objetos ya no usados. Con el fin de optimizar el programa
+                GC.Collect();
+                try
+                {
+                    infija = new NInfija(txtInfija.Text);
+                    txtPosfija.Text = infija.APosfija().ToString();
+                }
+                //En caso de dar algun error, es previsto que fue por la notación mal ingresada. 
+                catch (Exception ex) { MessageBox.Show("Error, notación ingresada incorrecta\n" + ex.ToString()); }
+            }
+
         }
 
         /// <summary>
@@ -71,7 +72,8 @@ namespace ClaseNotaciones
                 }
                 //En caso de dar algun error, es previsto que fue por la notación mal ingresada. 
                 catch (Exception ex) { MessageBox.Show("Error, notación ingresada incorrecta\n" + ex.ToString()); }
-            }else MessageBox.Show("Error, notación ingresada incorrecta\n");
+            }
+            else MessageBox.Show("Error, notación ingresada incorrecta\n");
 
 
         }
@@ -139,6 +141,22 @@ namespace ClaseNotaciones
             return true;
         }
 
+        private bool VerificarOperadoresConsecutivos(string input)
+        {
+            // Lista de operadores comunes
+            char[] operadores = { '+', '-', '*', '/', '!', '^' };
+
+            for (int i = 0; i < input.Length - 1; i++)
+            {
+                if (operadores.Contains(input[i]) && operadores.Contains(input[i + 1]))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         private void btnValidar_Click(object sender, EventArgs e)
         {
             //Para que cuando se de click en el botón y no se encuentre nada, se muestre mensaje
@@ -171,6 +189,13 @@ namespace ClaseNotaciones
                         MessageBox.Show("Notación Correcta");//mostrara la notación correcta
                     }
                 }
+
+                if (VerificarOperadoresConsecutivos(txtInfija.Text))
+                {
+
+                    MessageBox.Show("Error: No se permite operadores conjuntos.");
+                    return; // Salir del método si hay mezcla de letras y números
+                }
                 else
                 {
                     MessageBox.Show("Error en parentesis\nPor favor complete los parentesis");
@@ -202,7 +227,7 @@ namespace ClaseNotaciones
 
 
                 //ahora si asigno a r lo que contiene result.ToString()
-                
+
                 string r = result.ToString();
                 //finalmente lo imprime
                 txtRespuesta.Text = r;

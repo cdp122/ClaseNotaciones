@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Resources;
 
 namespace ClaseNotaciones
 {
@@ -9,7 +8,7 @@ namespace ClaseNotaciones
     /// </summary>
     abstract class Signos
     {
-        public static char[] signos = new char[] { '+', '-', '*', '/', '^', '(', ')' };
+        public static char[] signos = new char[] { '+', '-', '*', '/', '^', '(', ')', '!'};
     }
 
     /// <summary>
@@ -55,7 +54,13 @@ namespace ClaseNotaciones
                 {
                     nuevaNotacion += " ";
                     //de no serlo, realizará las siguientes acciones para cada operador. 
-                    if (notacion[i] == '^')
+                    if (notacion[i] == '!')
+                    {
+                        while (signos.getNumEle() != 0 && (char)signos.Cima() == '!')
+                            nuevaNotacion += signos.Desapilar() + " ";
+                        //El signo de potencia se apila dentro de la pila signos. 
+                        signos.Apilar(notacion[i]);
+                    } else if (notacion[i] == '^')
                     {
                         //Mientras que la pila signos no esté vacia y la cima del signo sea "^"
                         //se desapilarán y agregarán a la nueva Notación.
@@ -189,7 +194,7 @@ namespace ClaseNotaciones
             string[] tokens = notacion.Split(' ');
 
             // Crea una pila auxiliar con una capacidad suficiente para almacenar los números de la expresión.
-            Pila pila_aux = new Pila(tokens.Length/2 + 1);
+            Pila pila_aux = new Pila(tokens.Length / 2 + 1);
 
             // Itera sobre cada token en la expresión.
             foreach (string token in tokens)
@@ -201,6 +206,11 @@ namespace ClaseNotaciones
                 }
                 // Ignora los tokens vacíos.
                 else if (token == "") continue;
+                else if (token == "!")
+                {
+                    int operando = int.Parse(pila_aux.Desapilar() + "");
+                    pila_aux.Apilar(Factorial(operando));
+                }
                 else
                 {
                     // Si el token es un operador, desapila los dos últimos operandos
@@ -228,7 +238,7 @@ namespace ClaseNotaciones
                             pila_aux.Apilar(operand1 / operand2);
                             break;
                         case "^":
-                            pila_aux.Apilar(Math.Pow(operand1,operand2));
+                            pila_aux.Apilar(Math.Pow(operand1, operand2));
                             break;
                         default:
                             // Lanza una excepción si se encuentra un operador no reconocido.
@@ -238,7 +248,27 @@ namespace ClaseNotaciones
             }
             // El resultado final estará en la cima de la pila y se retorna desapilandolo.
             return Convert.ToDouble(pila_aux.Desapilar());
-            
+
         }
+
+        public int Factorial(int n)
+        {
+            if (n < 0)
+            {
+                Console.WriteLine("Factorial no definido para números negativos");
+                return -1;
+            }
+            else if (n == 1 || n == 0) return 1;
+            else
+            {
+                int resultado = 1;
+                for (int i = 2; i <= n; i++)
+                {
+                    resultado *= i;
+                }
+                return resultado;
+            }
+        }
+
     }
 }
