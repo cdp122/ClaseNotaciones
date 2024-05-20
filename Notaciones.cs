@@ -191,6 +191,7 @@ namespace ClaseNotaciones
             notacion = notacion.Substring(0, notacion.Length - 1);
 
             // Divide la expresión en tokens utilizando el espacio como delimitador.
+
             string[] tokens = notacion.Split(' ');
 
             // Crea una pila auxiliar con una capacidad suficiente para almacenar los números de la expresión.
@@ -213,10 +214,11 @@ namespace ClaseNotaciones
                 }
                 else
                 {
-                    // Si el token es un operador, desapila los dos últimos operandos
-                    // y realiza la operación correspondiente.
-                    double operand2 = Convert.ToDouble(pila_aux.Desapilar());
-                    double operand1 = Convert.ToDouble(pila_aux.Desapilar());
+
+                        // Si el token es un operador, desapila los dos últimos operandos
+                        // y realiza la operación correspondiente.
+                        double operand2 = Convert.ToDouble(pila_aux.Desapilar());
+                        double operand1 = Convert.ToDouble(pila_aux.Desapilar());
 
                     switch (token)
                     {
