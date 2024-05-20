@@ -142,7 +142,7 @@ namespace ClaseNotaciones
 
             foreach (char c in cadena)
             {
-                if (char.IsLetter(c))
+                if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
                 {
                     tieneLetras = true;
                 }
@@ -165,7 +165,7 @@ namespace ClaseNotaciones
         private bool VerificarOperadoresConsecutivos(string input)
         {
             // Lista de operadores comunes
-            char[] operadores = { '+', '-', '*', '/', '!', '^' };
+            char[] operadores = { '+', '-', '*', '/', '^' };
 
             for (int i = 0; i < input.Length - 1; i++)
             {
@@ -224,28 +224,11 @@ namespace ClaseNotaciones
                     MessageBox.Show("Error: No se permite operadores conjuntos.");
                     return; // Salir del método si hay mezcla de letras y números
                 }
-                else
-                {
-                    MessageBox.Show("Error en paréntesis\nPor favor complete los paréntesis");
-                }
+                
             }
         }
 
-        private bool VerificarOperadoresConsecutivos(string input)
-        {
-            // Lista de operadores comunes
-            char[] operadores = { '+', '-', '*', '/', '!', '^' };
-
-            for (int i = 0; i < input.Length - 1; i++)
-            {
-                if (operadores.Contains(input[i]) && operadores.Contains(input[i + 1]))
-                {
-                    return true;
-                }
-            }
-
-            return false;
-        }
+       
 
 
         private void btnEvaluar_Click(object sender, EventArgs e)
